@@ -2,7 +2,7 @@
 using namespace std;
 
 class myArray {
-private:
+protected:// было private
     int* arrayData;
     int size;
 
