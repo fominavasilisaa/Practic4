@@ -1,0 +1,73 @@
+//на основе Пз2
+
+#include <algorithm>
+
+using namespace std;
+
+class extendedArray : public myArray {
+public:
+    newArray(int arraySize) : myArray(arraySize) {}
+
+    double middleOfNumber() {
+        if (size == 0) {
+            return 0;
+        }
+
+        double sum = 0;
+
+        for (int i = 0; i < size; i++) {
+            sum = sum + arrayData[i];
+        }
+        return sum / size;
+    }
+
+    double median() {
+        if (size == 0) {
+            return 0;
+        }
+
+        int temp[size];
+        for (int i = 0; i < size; i++) {
+            temp[i] = arrayData[i];
+        }
+
+        sort(temp, temp + size);
+
+        if (size % 2 == 1) {
+            return temp[size / 2];
+        }
+        else {
+            return (temp[size / 2 - 1] + temp[size / 2]) / 2.0;
+        }
+    }
+
+    int minNumber() {
+        if (size == 0) {
+            return 0;
+        }
+
+        int min = arrayData[0];
+
+        for (int i = 1; i < size; i++) {
+            if (arrayData[i] < min) {
+                min = arrayData[i];
+            }
+        }
+        return min;
+    }
+
+    int maxNumber() {
+        if (size == 0) {
+            return 0;
+        }
+
+        int max = arrayData[0];
+
+        for (int i = 1; i < size; i++) {
+            if (arrayData[i] > max) {
+                max = arrayData[i];
+            }
+        }
+        return max;
+    }
+};
